@@ -76,6 +76,21 @@ function FormTour({ tour, createTour }) {
       data: ["Куба", "Мексика", "Албания", "Тунис"],
     },
   ];
+  const city = ["Тюмень", "Москва", "Екатеринбург"];
+  const food = [
+    "завтраки",
+    "без питания",
+    "все включено",
+    "завтрак-ужин",
+    "завтрак-обед-ужин",
+  ];
+
+  const rules = [
+    "отрицательный тест ПЦР для туристов от 12 лет или сертификат вакцинации((14 дней с последней дозы)",
+    "отрицательный тест ПЦР для туристов от 6 лет или сертификат вакцинации(14 дней с последней дозы)",
+    "отрицательный тест ПЦР для туристов любого возраста или сертификат вакцинации(14 дней с последней дозы)",
+    "тест или вакцина для въезда не требуется",
+  ];
 
   return (
     <div>
@@ -97,7 +112,7 @@ function FormTour({ tour, createTour }) {
         <br />
         <label htmlFor="country">Город вылета</label>
         <select name="city" onChange={changeHandler}>
-          {["Тюмень", "Москва", "Екатеринбург"].map((el) => (
+          {city.map((el) => (
             <option>{el}</option>
           ))}
         </select>
@@ -112,13 +127,7 @@ function FormTour({ tour, createTour }) {
         <input type="text" name="hotel" onChange={changeHandler} /> <br />
         <label htmlFor="food">Питание</label>
         <select name="food" onChange={changeHandler}>
-          {[
-            "завтраки",
-            "без питания",
-            "все включено",
-            "завтрак-ужин",
-            "завтрак-обед-ужин",
-          ].map((el) => (
+          {food.map((el) => (
             <option>{el}</option>
           ))}
         </select>
@@ -133,15 +142,11 @@ function FormTour({ tour, createTour }) {
         <br />
         <label htmlFor="rules">Для въезда</label>
         <select name="rules" onChange={changeHandler}>
-          {[
-            "отрицательный тест ПЦР для туристов от 12 лет или сертификат вакцинации((14 дней с последней дозы)",
-            "отрицательный тест ПЦР для туристов от 6 лет или сертификат вакцинации(14 дней с последней дозы)",
-            "отрицательный тест ПЦР для туристов любого возраста или сертификат вакцинации(14 дней с последней дозы)",
-            "тест или вакцина для въезда не требуется",
-          ].map((el) => (
+          {rules.map((el) => (
             <option>{el}</option>
           ))}
         </select>
+        <br />
         <label htmlFor="comments">Комментарии</label>
         <input type="text" name="comments" onChange={changeHandler} /> <br />
         <br />
