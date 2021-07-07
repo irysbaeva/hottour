@@ -21,8 +21,6 @@ function FormTour({ tour, createTour }) {
     setNewTour({ ...newTour, [e.target.name]: e.target.value });
   };
 
-  console.log(tour);
-
   const destination = [
     {
       data: [
