@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import moment from "moment";
+import "../App.css"
 
 const dateFormat = (date) => {
   moment.locale("ru");
@@ -22,10 +23,11 @@ function Tour({ tour }) {
     comments,
   } = tour;
   return (
-    <div>
+    <div className="tour">
+      
       <p> {title}</p>
       <p> Супер-цена!</p>
-      <p>Направление: {destination}</p>
+      <p> {destination}</p>
       <p>Город вылета: {city}</p>
       <p>
         Даты тура: {dateFormat(start)} - {dateFormat(end)}
@@ -38,6 +40,7 @@ function Tour({ tour }) {
       <p>В стоимость включено: перелет, проживание, трансфер, мед. страховка</p>
       <p>Правила въезда: {rules}</p>
       <p>{comments}</p>
+      <p>Для бронирования пишите в личные сообщения или звоните.</p>
     </div>
   );
 }

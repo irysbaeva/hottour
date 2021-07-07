@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import createTour from "../redux/actions";
+import "../App.css";
 
 function FormTour({ tour, createTour }) {
   const [newTour, setNewTour] = useState({
@@ -90,15 +91,23 @@ function FormTour({ tour, createTour }) {
     "отрицательный тест ПЦР для туристов от 6 лет или сертификат вакцинации(14 дней с последней дозы)",
     "отрицательный тест ПЦР для туристов любого возраста или сертификат вакцинации(14 дней с последней дозы)",
     "тест или вакцина для въезда не требуется",
+    "отрицательный тест или сертификат вакцинации",
+  ];
+
+  const tourists = [
+    "руб/чел.",
+    "на семью 2+2 реб",
+    "на семью 2+1 реб",
+    "на двоих",
   ];
 
   return (
     <div>
-      <form>
+      <form className="form">
         <label htmlFor="title">Заголовок</label>
-        <input type="text" name="title" onChange={changeHandler} /> <br />
+        <input type="text" id="title" name="title" onChange={changeHandler} />
         <label htmlFor="destination">Направление</label>
-        <select name="destination" onChange={changeHandler}>
+        <select id="destination" name="destination" onChange={changeHandler}>
           {destination.map((country) => {
             return (
               <optgroup label={country.label}>
@@ -109,47 +118,53 @@ function FormTour({ tour, createTour }) {
             );
           })}
         </select>
-        <br />
-        <label htmlFor="country">Город вылета</label>
-        <select name="city" onChange={changeHandler}>
+
+        <label htmlFor="city">Город вылета</label>
+        <select name="city" id="city" onChange={changeHandler}>
           {city.map((el) => (
             <option>{el}</option>
           ))}
         </select>
-        <br />
+
         <label htmlFor="start">Начало тура</label>
-        <input onChange={changeHandler} type="date" name="start" />
-        <br />
+        <input onChange={changeHandler} id="start" type="date" name="start" />
+
         <label htmlFor="end">Конец тура</label>
-        <input type="date" name="end" onChange={changeHandler} />
-        <br />
-        <label htmlFor="start">Отель</label>
-        <input type="text" name="hotel" onChange={changeHandler} /> <br />
+        <input type="date" name="end" id="end" onChange={changeHandler} />
+
+        <label htmlFor="hotel">Отель</label>
+        <input type="text" id="hotel" name="hotel" onChange={changeHandler} />
         <label htmlFor="food">Питание</label>
-        <select name="food" onChange={changeHandler}>
+        <select name="food" id="food" onChange={changeHandler}>
           {food.map((el) => (
             <option>{el}</option>
           ))}
         </select>
-        <br />
+
         <label htmlFor="price">Стоимость</label>
-        <input type="text" name="price" onChange={changeHandler} />
-        <select name="tourists" onChange={changeHandler}>
-          {["руб/чел.", "на семью 2+2 реб", "на семью 2+1 реб"].map((el) => (
+        <input type="text" name="price" id="price" onChange={changeHandler} />
+        <label htmlFor="tourusts"></label>
+        <select name="tourists" id="tourists" onChange={changeHandler}>
+          {tourists.map((el) => (
             <option>{el}</option>
           ))}
         </select>
-        <br />
+
         <label htmlFor="rules">Для въезда</label>
-        <select name="rules" onChange={changeHandler}>
+        <select id="rules" name="rules" onChange={changeHandler}>
           {rules.map((el) => (
             <option>{el}</option>
           ))}
         </select>
-        <br />
+
         <label htmlFor="comments">Комментарии</label>
-        <input type="text" name="comments" onChange={changeHandler} /> <br />
-        <br />
+        <input
+          type="text"
+          id="comments"
+          name="comments"
+          onChange={changeHandler}
+        />
+
         <button
           onClick={(e) => {
             e.preventDefault();
