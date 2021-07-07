@@ -4,23 +4,6 @@ import createTour from "../redux/actions";
 import "../App.css";
 
 function FormTour({ tour, createTour }) {
-  const [newTour, setNewTour] = useState({
-    destination: null,
-    city: null,
-    start: new Date(),
-    end: new Date(),
-    hotel: null,
-    price: null,
-    food: null,
-    tourists: null,
-    rules: null,
-  });
-
-  console.log(newTour);
-  const changeHandler = (e) => {
-    setNewTour({ ...newTour, [e.target.name]: e.target.value });
-  };
-
   const destination = [
     {
       data: [
@@ -98,6 +81,28 @@ function FormTour({ tour, createTour }) {
     "на семью 2+1 реб",
     "на двоих",
   ];
+
+  const [newTour, setNewTour] = useState({
+    title: null,
+    destination: destination[0].data[0],
+    city: city[0],
+    start: new Date(),
+    end: new Date(),
+    hotel: null,
+    price: null,
+    food: food[0],
+    tourists: tourists[0],
+    rules: rules[0],
+    comments: null,
+  });
+
+  const changeHandler = (e) => {
+    console.log(e.target.value);
+
+    setNewTour({ ...newTour, [e.target.name]: e.target.value });
+  };
+
+  console.log(newTour);
 
   return (
     <div>
