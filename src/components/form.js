@@ -23,24 +23,7 @@ function FormTour({ tour, createTour }) {
       ],
       label: "Турция",
     },
-    {
-      data: [
-        "Турция",
-        "Анталийское побережье",
-        "Эгейское побережье",
-        "Стамбул",
-        "Белек",
-        "Анталия",
-        "Кемер",
-        "Бодрум",
-        "Даламан",
-        "Кушадасы",
-        "Фетхие",
-        "Олюдениз",
-        "Мармарис",
-      ],
-      label: "Турция",
-    },
+
     {
       data: ["Кипр", "Протарас", "Айя-напа", "Пафос", "Ларнака", "Лимассол"],
       label: "Кипр",
@@ -97,12 +80,8 @@ function FormTour({ tour, createTour }) {
   });
 
   const changeHandler = (e) => {
-    console.log(e.target.value);
-
     setNewTour({ ...newTour, [e.target.name]: e.target.value });
   };
-
-  console.log(newTour);
 
   return (
     <div>
@@ -113,9 +92,9 @@ function FormTour({ tour, createTour }) {
         <select id="destination" name="destination" onChange={changeHandler}>
           {destination.map((country) => {
             return (
-              <optgroup label={country.label}>
+              <optgroup key={`country ${country.label}`} label={country.label}>
                 {country.data.sort().map((el) => (
-                  <option>{el}</option>
+                  <option key={el}>{el}</option>
                 ))}
               </optgroup>
             );
@@ -125,38 +104,33 @@ function FormTour({ tour, createTour }) {
         <label htmlFor="city">Город вылета</label>
         <select name="city" id="city" onChange={changeHandler}>
           {city.map((el) => (
-            <option>{el}</option>
+            <option key={el}>{el}</option>
           ))}
         </select>
 
-        <label htmlFor="start">Начало тура</label>
+        <label htmlFor="start">Даты тура</label>
         <input onChange={changeHandler} id="start" type="date" name="start" />
-
-        <label htmlFor="end">Конец тура</label>
         <input type="date" name="end" id="end" onChange={changeHandler} />
-
         <label htmlFor="hotel">Отель</label>
         <input type="text" id="hotel" name="hotel" onChange={changeHandler} />
         <label htmlFor="food">Питание</label>
         <select name="food" id="food" onChange={changeHandler}>
           {food.map((el) => (
-            <option>{el}</option>
+            <option key={el}>{el}</option>
           ))}
         </select>
 
         <label htmlFor="price">Стоимость</label>
         <input type="text" name="price" id="price" onChange={changeHandler} />
-        <label htmlFor="tourusts"></label>
         <select name="tourists" id="tourists" onChange={changeHandler}>
           {tourists.map((el) => (
-            <option>{el}</option>
+            <option key={el}>{el}</option>
           ))}
         </select>
-
         <label htmlFor="rules">Для въезда</label>
         <select id="rules" name="rules" onChange={changeHandler}>
           {rules.map((el) => (
-            <option>{el}</option>
+            <option key={el}>{el}</option>
           ))}
         </select>
 

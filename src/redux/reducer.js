@@ -7,10 +7,10 @@ let initialState = {
     end: new Date(),
     hotel: null,
     price: null,
-    food:null,
-    tourists:null,
-    rules:null,
-    comments: null
+    food: null,
+    tourists: null,
+    rules: null,
+    comments: null,
   },
 };
 
